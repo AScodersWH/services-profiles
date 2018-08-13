@@ -2,8 +2,8 @@ services:
     todo-service:
         host: todo-service
         port: 8082
-    user-service:
-        host: user-service
+    userService:
+        host: userService
         port: 8081
 
 db:
@@ -17,9 +17,9 @@ todo-service:
     ribbon:
         listOfServers: ${services.todo-service.host}:${services.todo-service.port}
 
-user-service:
+userService:
     ribbon:
-        listOfServers: ${services.user-service.host}:${services.user-service.port}
+        listOfServers: ${services.userService.host}:${services.userService.port}
 
 spring:
     jpa:
