@@ -1,5 +1,5 @@
 services:
     todo-service:
-        host: config-server
+        host: todo-service
     user-service:
-        host: config-server
+        host: user-service
