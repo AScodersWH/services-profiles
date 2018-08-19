@@ -7,7 +7,7 @@ services:
         port: 8081
 
 db:
-    host: coney/mysql:5
+    host: mysql
     port: 3306
     username: root
     password: password
