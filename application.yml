@@ -5,6 +5,9 @@ services:
     user-service:
         host: user-service
         port: 8082
+    zuul-service:
+        host: zuul-service
+        port: 8089
 
 db:
     host: mysql
@@ -20,6 +23,19 @@ todo-service:
 user-service:
     ribbon:
         listOfServers: ${services.user-service.host}:${services.user-service.port}
+        
+zuul:
+  debug:
+    request: true
+  routes:
+    user:
+      path: /api/user/**
+      serviceId: user-service
+      strip-prefix: false
+    todos:
+      path: /api/todos/**
+      serviceId: todo-service
+      strip-prefix: false
 
 spring:
     jpa:
