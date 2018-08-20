@@ -29,11 +29,11 @@ zuul:
     request: true
   routes:
     user:
-      path: /api/user/**
+      path: /user/**
       serviceId: user-service
       strip-prefix: false
     todos:
-      path: /api/todos/**
+      path: /todos/**
       serviceId: todo-service
       strip-prefix: false
 
