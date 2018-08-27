@@ -24,6 +24,10 @@ user-service:
     ribbon:
         listOfServers: ${services.user-service.host}:${services.user-service.port}
         
+zuul-service:
+    ribbon:
+        listOfServers: ${services.zuul-service.host}:${services.zuul-service.port}
+        
 zuul:
   debug:
     request: true
@@ -35,6 +39,10 @@ zuul:
     todos:
       path: /todos/**
       serviceId: todo-service
+      strip-prefix: false
+    login:
+      path: /login/**
+      serviceId: zuul-service
       strip-prefix: false
 
 spring:
