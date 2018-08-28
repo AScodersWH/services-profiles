@@ -1,68 +1,13 @@
-services:
-  todo-service:
-    host: todo-service
-    port: 8081
-  user-service:
-    host: user-service
-    port: 8082
-  zuul-service:
-    host: zuul-service
-    port: 8089
-
-db:
-  host: mysql
-  port: 3306
-  username: root
-  password: password
-  schema: ${db.name}
-
-todo-service:
-  ribbon:
-    listOfServers: ${services.todo-service.host}:${services.todo-service.port}
-
-user-service:
-  ribbon:
-    listOfServers: ${services.user-service.host}:${services.user-service.port}
-
-zuul-service:
-  ribbon:
-    listOfServers: ${services.zuul-service.host}:${services.zuul-service.port}
-
-zuul:
-  debug:
-    request: true
-  routes:
-    user:
-      path: /user/**
-      serviceId: user-service
-      strip-prefix: false
-    todos:
-      path: /todos/**
-      serviceId: todo-service
-      strip-prefix: false
-    login:
-      path: /login/**
-      serviceId: zuul-service
-      strip-prefix: false
-
 spring:
   jpa:
     hibernate:
       ddl-auto: none
-  datasource:
-    url: jdbc:mysql://${db.host}:${db.port}/${db.schema}
-    username: ${db.username}
-    password: ${db.password}
-    driver-class-name: com.mysql.jdbc.Driver
-  cloud:
-    consul:
-      host: consul
-      port: 8500
-      discovery:
-        instance-id: ${spring.application.name}:${random.int}
 
 logging:
   level:
     org:
       springframework:
         security: INFO
+
+server:
+  port: ${server.port}

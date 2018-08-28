@@ -1,2 +1,8 @@
-db:
-  name: todo
+server:
+  port: 8081
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/todos?autoReconnect=true&useSSL=false
+    username: root
+    password: password
