@@ -42,7 +42,6 @@ zuul:
 spring:
   jpa:
     hibernate:
-      database-platform: org.hibernate.dialect.MySQL5Dialect
       ddl-auto: create
   datasource:
     url: jdbc:mysql://${db.host}:${db.port}/${db.schema}
