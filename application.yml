@@ -41,6 +41,9 @@ zuul:
   prefix: /api
 
 spring:
+  jpa:
+    hibernate:
+      ddl-auto: none
   datasource:
     url: jdbc:mysql://${db.host}:${db.port}/${db.schema}
     username: ${db.username}
