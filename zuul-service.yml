@@ -20,7 +20,7 @@ zuul:
     request: true
   routes:
     user:
-      path: /users/**
+      path: /user/**
       serviceId: user-service
       stripPrefix: false
 
