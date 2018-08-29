@@ -31,18 +31,19 @@ zuul:
   sensitiveHeaders:
   routes:
     reister-service:
-      path: /user
+      path: /user/**
       serviceId: user-service
       strip-prefix: false
     todo-service:
-      path: /todos
+      path: /todos/**
       serviceId: todo-service
       strip-prefix: false
+  prefix: /api
 
 spring:
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: none
   datasource:
     url: jdbc:mysql://${db.host}:${db.port}/${db.schema}
     username: ${db.username}
